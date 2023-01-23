@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: DB_mongo
+    restart: always
+  #   volumes:
+  #     - ./_mongodata:/data/db
+    ports: 
+     - 27017:27017
+
+  app1:
+    image: app:v1
+    container_name: app1      
+    ports: 
+      - "8081"
+    depends_on:
+      - db
+     
+  app2:
+    image: app:v1 
+    container_name: app2
+    ports: 
+      - "8081"
+    depends_on:
+      - db
+     
+  proxy:
+    image: proxy:v1
+    container_name: proxy
+    ports: 
+      - 8080:8080
+    depends_on:
+      - app1
+      - app2
+     

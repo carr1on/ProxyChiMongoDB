@@ -1,0 +1,53 @@
+###
+// create complited
+POST http://localhost:8080/user/create HTTP/1.1
+content-type: application/json
+
+{"name":"some name","age":21}
+###
+
+// getOne complited
+
+GET http://localhost:8080/user/ HTTP/1.1
+content-type: application/json
+
+{"uid":2}
+###
+
+// update complited
+
+PUT http://localhost:8080/user/update HTTP/1.1
+content-type: application/json
+
+{"uid":2,"name":"name","age":22}
+
+###
+// getAll complited
+
+GET http://localhost:8080/user/all HTTP/1.1
+content-type: application/json
+
+###
+// delete complited
+
+DELETE http://localhost:8080/user/delete HTTP/1.1
+content-type: application/json
+
+{"uid":4}
+###
+
+// "make_friend" complited
+
+POST http://localhost:8080/user/make_friend HTTP/1.1
+content-type: application/json
+
+{"source_Id": 2, "target_Id":3}
+
+###
+// friendlist complited
+
+GET http://localhost:8080/user/this_user/friends/ HTTP/1.1
+content-type: application/json
+
+{"uid":2}
+###
